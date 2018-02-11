@@ -16,6 +16,7 @@ def contact():
 		username=request.form.get("yourusername",False)
 		querysubject=request.form.get("querysubject",False)
 		query=request.form.get("query",False)
+		#instead of 'queries' you can give your own table name
 		f.execute("insert into queries(Firstname, Lastname, Username, Subject, Query) values(%s,%s, %s, %s, %s)",(firstname,lastname,username,querysubject,query))
 		e.commit()
 		e.close()
@@ -46,6 +47,7 @@ def view():
 		e,f=connect()
 		if session['logged_in']==True:
 			loggedin_username=session['username']
+		#instead of 'messages' you can give your own table name
 		get_reciever_username=f.execute("select Username,Message from messages where Reciever_Username='%s'"%(loggedin_username))
 		#get_sender_username=f.execute("select Username from messages where Reciever_Username='%s'"%(loggedin_username))
 		if get_reciever_username!=0:
@@ -68,6 +70,7 @@ def send():
 		entered_message=request.form.get("message",False)
 		if session['logged_in']==True:
 			login_username=session['username']
+		#instead of 'messages' you can give your own table name
 		f.execute("insert into messages(Username, Reciever_Username, Subject, Message) values(%s, %s, %s, %s)",(login_username,entered_rusername,entered_subject,entered_message))
 		e.commit()
 		e.close()
@@ -97,6 +100,7 @@ def login():
 		if get_username==0:
 			return redirect(url_for('login'))
 		get_password=f.fetchone()[5]
+		#instead of 'messages' you can give your own table name
 		#get_reciever_username=f.execute("select * from messages where Reciever_Username='%s'"%(get_username))
 		#get_messages=f.fetchone()[3]
 		if get_password!=paswd or get_username==0:
@@ -122,6 +126,7 @@ def signup():
 		check_username=f.execute("select Username from users where Username='%s'"%(usernames))
 		if usernames=='admin' or check_username!=0:
 			return redirect(url_for('signup'))
+		#instead of 'users' you can give your own table name
 		f.execute("insert into users(FirstName, LastName, Username, Contact, Password) values(%s, %s, %s, %s, %s)",(firstname, lastname, usernames, contacts, password))
 		e.commit()
 		e.close()
