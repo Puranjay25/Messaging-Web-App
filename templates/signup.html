@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Sign Up
+{% endblock %}
+
+{% block body %}
+	<form action="{{url_for('signup')}}" method="post">
+		<body style="background-color:orange"/>
+		<div class="container">
+			<div id="image" style="text-align: center">
+				<img src="static/download.png" alt="user">
+			</div>
+			<div class="form-group">
+				<label for="fname" class="control-label">First Name</label>
+				<input name="fname" placeholder="First Name" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="lname" class="control-label">Last Name</label>
+				<input name="lname" placeholder="Last Name" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="username" class="control-label">Username</label>
+				<input name="username" placeholder="Your Username" type="text" class="form-control">
+					<div id="domain" style="color:red">
+						@send-msg.com
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="contact" class="control-label">Contact</label>
+				<input name="contact" placeholder="Contact" type="number" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="pswd" class="control-label">Password</label>
+				<input name="pswd" placeholder="Password" type="password" class="form-control">
+			</div>
+			<a href="/login"><input class="btn btn-info" value="Sign Up" type="submit"></a>
+		</div>
+	</form>
+{% endblock %}

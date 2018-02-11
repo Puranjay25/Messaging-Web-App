@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	View Messages
+{% endblock %}
+
+{% block body %}
+	<form action="{{url_for('view')}}" method="get">
+		{% for messages in get_reciever_username_messages %}
+			{{messages}}
+			<br>
+		{% endfor %}
+	</form>
+{% endblock %}

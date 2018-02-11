@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Contact List
+{% endblock %}
+
+{% block body %}
+	<form action="{{url_for('contactlist')}}" method="post">
+		<div id="availableusernames" style="color:blue;font-size: 36px">
+			<div id="heading" style="text-align: center;text-shadow: 2px 2px #0000FF">
+				Registered Usernames
+			</div>
+		</div>
+		<div class="container">
+			{% for name in names %}
+				<div class="panel panel-danger">
+					<div class="panel-heading" style="color: #ff0000">First Name: {{name[0]}}</div>
+					<div class="panel-body">Last Name: {{name[1]}}</div>
+					<div class="panel-footer">Username: {{name[2]}}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</form>
+{% endblock %}

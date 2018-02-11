@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	View Messages
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		{% for messages in get_reciever_username_messages %}
+				<div class="panel panel-info">
+					<div class="panel-heading">Message Sender: {{messages[0]}}</div>
+					<div class="panel-body" style="background-color: #9999ff">{{messages[1]}}</div>
+				</div>
+		{% endfor %}
+	</div>
+{% endblock %}

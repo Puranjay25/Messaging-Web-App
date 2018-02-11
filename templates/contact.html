@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Contact Us
+{% endblock %}
+
+{% block body %}
+	<form action="{{url_for('contact')}}" method="post">
+		<body background="{{url_for('static',filename='065601061271255.jpg')}}" style="background-size: cover;height:100%;width: 100%"/>
+		<div class="container">
+			<div class="form-group">
+				<label for="firstname" class="control-label">First Name:</label>
+				<input name="firstname" class="form-control" type="text" placeholder="Type Here" style="width:600px"/>
+			</div>
+			<div class="form-group">
+				<label for="lastname" class="control-label">Last Name:</label>
+				<input name="lastname" class="form-control" type="text" placeholder="Type Here" style="width:600px"/>
+			</div>
+			<div class="form-group">
+				<label for="yourusername" class="control-label">Your Username:</label>
+				<input name="yourusername" class="form-control" type="text" placeholder="Type Here" style="width:600px"/>
+			</div>
+			<div class="form-group">
+				<label for="querysubject" class="control-label">Query Subject/Suggestion Topic:</label>
+				<input name="querysubject" class="form-control" type="text" placeholder="Type Here" style="width:600px"/>
+			</div>
+			<div class="form-group">
+				<label for="query" class="control-label">Query/Suggestion:</label>
+				<input name="query" class="form-control" type="text"  style="width:600px;height: 200px"/>
+			</div>
+			<a href="/"><input type="submit" class="btn btn-danger" value="Submit" style="width: 600px"></a>
+			<h2 style="color: 	#8B008B;font-family: "Segoe UI",Arial,sans-serif"> After query is recieved we will contact you soon...</h2>
+		</div>
+	</form>
+{% endblock %}

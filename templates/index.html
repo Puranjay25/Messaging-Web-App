@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Test
+{% endblock %}
+
+{% block body %}
+	<body background="{{url_for('static',filename='Website-Design-Background.png')}}"/>
+	<div class="w3-container w3-center w3-animate-zoom">
+  <h1 style="color: brown;font-size: 50px;font-family: "Segoe UI",Arial,sans-serif">Connecting with known ones is Fun!</h1>
+  <p style="color: coral;font-size: 25px">This web app let's you send messages to connected users</p>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Home Page
+{% endblock %}
+
+{% block body %}
+	<form action="{{url_for('userhomepage')}}" method="post">
+		<body background="{{url_for('static',filename='bootstrap-slider-nice-pure-css3-carousel-29.jpeg')}}" style="background-size: cover"/>
+		<div class="container">
+			<ul class="nav nav-pills" style="font-size: 150px;width:1400px">
+				<li class="active"><a href="/send">Send Message</a></li>
+				<br>
+				<br>
+				<li class="active"><a href="/view">View Messages</a></li>
+				<br>
+				<br>
+				<li class="active"><a href="/contactlist">Contact List</a></li>
+			</ul>
+		</div>
+	</form>
+{% endblock %}
