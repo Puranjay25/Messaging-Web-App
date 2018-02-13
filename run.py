@@ -103,7 +103,7 @@ def login():
 		#instead of 'messages' you can give your own table name
 		#get_reciever_username=f.execute("select * from messages where Reciever_Username='%s'"%(get_username))
 		#get_messages=f.fetchone()[3]
-		if get_password!=paswd or get_username==0:
+		if get_password!=paswd or get_username==0: #get_username==0 means username not found in database.
 			return redirect(url_for('login'))
 		else:
 			session['logged_in']=True
@@ -124,7 +124,7 @@ def signup():
 		contacts=request.form.get("contact",False)
 		password=request.form.get("pswd",False)
 		check_username=f.execute("select Username from users where Username='%s'"%(usernames))
-		if usernames=='admin' or check_username!=0:
+		if usernames=='admin' or check_username!=0 or usernames=='':
 			return redirect(url_for('signup'))
 		#instead of 'users' you can give your own table name
 		f.execute("insert into users(FirstName, LastName, Username, Contact, Password) values(%s, %s, %s, %s, %s)",(firstname, lastname, usernames, contacts, password))
